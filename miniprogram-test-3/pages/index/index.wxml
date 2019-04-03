@@ -1,0 +1,145 @@
+<view id='title'>
+  <view id='position'>
+    <image src='images/nav_icon_my_position.png' id='position_img'></image>
+    <text id='position_text'>渝北金开大道大店</text>
+    <image src='images/nav_icon_homepage_message.png' id='message_img'></image>
+  </view>
+
+  <view id='self_help'>
+    <i-grid i-class='text'>
+      <i-grid-item>
+        <i-grid-icon>
+          <image id='self_help_img' src="images/btn_homepage_self-help.png" />
+        </i-grid-icon>
+        <i-grid-label i-class='self_help_text'>无忧快递</i-grid-label>
+      </i-grid-item>
+
+      <i-grid-item>
+        <i-grid-icon>
+          <image id='self_help_img' src="images/btn_homepage_scan.png" />
+        </i-grid-icon>
+        <i-grid-label i-class='self_help_text'>扫一扫</i-grid-label>
+      </i-grid-item>
+
+      <i-grid-item>
+        <i-grid-icon>
+          <image id='self_help_img' src="images/btn_homepage_service.png" />
+        </i-grid-icon>
+        <i-grid-label i-class='self_help_text'>管家服务</i-grid-label>
+      </i-grid-item>
+    </i-grid>
+  </view>
+</view>
+
+<view id='radius'></view>
+
+
+<view id='content'>
+  <i-grid i-class='text'>
+    <i-grid-item>
+      <i-grid-icon>
+        <image id='homepage' src="images/btn_homepage_courier.png" />
+      </i-grid-icon>
+      <i-grid-label i-class='self_help_text'>店内自助</i-grid-label>
+    </i-grid-item>
+
+    <i-grid-item>
+      <i-grid-icon>
+        <image id='homepage' src="images/btn_homepage_housekeeper.png" />
+      </i-grid-icon>
+      <i-grid-label i-class='self_help_text'>管家代办</i-grid-label>
+    </i-grid-item>
+
+    <i-grid-item>
+      <i-grid-icon>
+        <image id='homepage' src="images/btn_homepage_clothing.png" />
+      </i-grid-icon>
+      <i-grid-label i-class='self_help_text'>衣物送洗</i-grid-label>
+    </i-grid-item>
+  </i-grid>
+
+
+  <view id='list2'>
+    <i-grid i-class='text'>
+      <i-grid-item>
+        <i-grid-icon>
+          <image id='homepage' src="images/btn_homepage_recharge.png" />
+        </i-grid-icon>
+        <i-grid-label i-class='self_help_text'>充值有礼</i-grid-label>
+      </i-grid-item>
+
+      <i-grid-item>
+        <i-grid-icon>
+          <image id='homepage' src="images/btn_homepage_takeout.png" />
+        </i-grid-icon>
+        <i-grid-label i-class='self_help_text'>外卖上门</i-grid-label>
+      </i-grid-item>
+
+      <i-grid-item>
+        <i-grid-icon>
+          <image id='homepage' src="images/btn_homepage_message.png" />
+        </i-grid-icon>
+        <i-grid-label i-class='self_help_text'>意见反馈</i-grid-label>
+      </i-grid-item>
+    </i-grid>
+  </view>
+</view>
+
+<view class='page'>
+  <view class='page_bd'>
+    <view class='section section_gap swiper'>
+      <swiper autoplay='{{autoplay}}' circular='{{circular}}' current='{{flag}}' bindchange='swiperChange'>
+        <block wx:for="{{background}}">
+          <swiper-item>
+            <image src='{{item}}' />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class='spotRoot'>
+        <i-row>
+          <i-col offset='4' span='4'>
+            <text decode='true'>&nbsp;</text>
+          </i-col>
+          <i-col wx:for='{{background}}' span='2'>
+            <view class='{{flag==index?"spotSelected":"spot"}}' bindtap='gotoSwiper' id='{{index}}'></view>
+          </i-col>
+        </i-row>
+      </view>
+    </view>
+  </view>
+
+
+  <image id='vipimg' src='images/pic_joinmember.png'></image>
+
+</view>
+<view id='youxuan'>
+  <i-row i-class='row'>
+    <i-col offset='1' span='6'>
+      <view class='h1'>活动优选</view>
+    </i-col>
+  </i-row>
+  <block wx:for='{{array}}'>
+    <view bindtap='commodityDetails' id='"{{item.id}}"'>
+      <i-row i-class='row'>
+        <i-col offset='1' span='7'>
+          <image class='img' src='{{item.img}}'></image>
+        </i-col>
+        <i-col offset='1' span='14'>
+          <view class='h2'>{{item.h2}}</view>
+          <view class='h3'>{{item.h3}}</view>
+        </i-col>
+      </i-row>
+      <view class='xian'></view>
+    </view>
+  </block>
+</view>
+
+
+<view>
+  <i-tab-bar current="{{ current }}" color="#372f2d" bindchange="handleChange" fixed='true'>
+    <i-tab-bar-item key="homepage" img='../../pages/index/images/bar_icon_homepage_normal.png' current-img="../../pages/index/images/bar_icon_homepage_click.png" title="首页"></i-tab-bar-item>
+    <i-tab-bar-item key="group" img='../../pages/index/images/bar_icon_category_normal.png' current-img="../../pages/index/images/bar_icon_category_click.png" title="分类"></i-tab-bar-item>
+    <i-tab-bar-item key="remind" img='../../pages/index/images/bar_icon_shoppingcart_normal.png' current-img="../../pages/index/images/bar_icon_shoppingcart_click.png" title="购物车"></i-tab-bar-item>
+    <i-tab-bar-item key="mine" img='../../pages/index/images/bar_icon_my_normal.png' current-img="../../pages/index/images/bar_icon_my_click.png" title="我的"></i-tab-bar-item>
+  </i-tab-bar>
+</view>
